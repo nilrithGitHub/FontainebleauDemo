@@ -1,7 +1,6 @@
 using UnityEditor;
 using UnityEngine;
 using GameplayIngredients.Editor;
-using GameplayIngredients;
 
 static class SamplePlayFromHere
 {
@@ -14,7 +13,7 @@ static class SamplePlayFromHere
     private static void PlayFromHere_OnPlayFromHere(Vector3 position, Vector3 forward)
     {
         // Get the FirstPersonCharacter prefab in Resources and instantiate it
-        var prefab = (GameObject)Resources.Load("PlayFromHere-FirstPersonCharacter");
+        var prefab = (GameObject)Resources.Load("FirstPersonCharacter");
         var player = GameObject.Instantiate(prefab);
         player.name = "(Play from Here) " + prefab.name;
 
@@ -26,6 +25,6 @@ static class SamplePlayFromHere
         var orient = forward;
         orient.Scale(new Vector3(1, 0, 1));
         player.transform.forward = orient;
-        Messager.Send("PLAY_FROM_HERE");
+
     }
 }
